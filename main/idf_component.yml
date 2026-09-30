@@ -26,7 +26,8 @@ dependencies:
   espressif/esp_audio_codec: ~2.5.0
   78/esp-ml307: ~3.7.0
   78/uart-eth-modem:
-    version: ~0.6.5
+    git: https://github.com/tonshans/uart-eth-modem.git
+    version: e2bda89e599aa5f0e9d12988b8801dcbb3785934
     rules:
     - if: target not in [esp32]
   78/xiaozhi-fonts: ~2.0.0
@@ -150,3 +151,12 @@ dependencies:
   m5stack/m5pm1: ^1.0.7
 
   cube32esp/xpowerslib: ^0.3.3
+
+
+overrides:
+  - 78/uart-uhci:
+      with:
+        uart-uhci:
+          git: https://github.com/tonshans/uart-uhci.git
+          version: 08c32c64baed11aa3746b9b82377c27a1c12398d
+      reason: "Fix IDF 6.1 compatibility - gdma_get_channel_alignment_constraints"
